@@ -1,9 +1,10 @@
+- title "Choose a Shuttle"
 %p= SiteContent.get("shuttle_form_text")
 
 - if current_user.shuttle_id
   %p
     You have selected the 
-    %strong= current_user.shuttle.departure_time.strftime("%A, %B %d, %l:%M%p")
+    %strong= current_user.shuttle.long_date
     shuttle. You can change your choice below.
 
 = form_tag(select_shuttles_path) do
@@ -13,13 +14,13 @@
       - date = shuttle.departure_time
       - if prev_day != date.day
         - prev_day = date.day
-        %li.new-day= date.strftime("%A, %B %d")
+        %li.new-day= shuttle.day_of_week
       %li
         - if shuttle.is_full?
           = radio_button_tag "shuttle_id", shuttle.id, (current_user.shuttle_id == shuttle.id), :disabled => true
         - else
           = radio_button_tag "shuttle_id", shuttle.id, (current_user.shuttle_id == shuttle.id)
-        = date.strftime("%l:%M%p") 
+        = "#{shuttle.short_time} to #{shuttle.destination}"
         - if shuttle.is_full?
           (FULL)
         - if (current_user.shuttle_id == shuttle.id)

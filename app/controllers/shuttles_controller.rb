@@ -11,6 +11,8 @@ class ShuttlesController < ApplicationController
       current_user.shuttle = @shuttle
       current_user.save
       flash[:success] = "Thank you for choosing a shuttle! You should receive a confirmation email shortly."
+
+      ConfirmationMailer.confirm_shuttle(current_user, @shuttle).deliver
     else
       flash[:error] = "This shuttle is full. Please choose a different shuttle."
     end
