@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
+gem 'sqlite3'
 
 gem 'devise', '~> 1.4.0', :git => 'git://github.com/plataformatec/devise.git', :branch => 'v1.4'
 gem "devise_ldap_authenticatable", :git => "git://github.com/jksilliman/devise_ldap_authenticatable.git"
@@ -32,13 +33,8 @@ end
 # gem 'capistrano'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :production do
-  gem 'pg'
-end
-
 group :development do
   gem 'annotate'
-  gem 'sqlite3'
 end
 
 group :test do

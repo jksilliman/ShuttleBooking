@@ -8,11 +8,11 @@ set :bundle_roles, :app
 require 'bundler/capistrano'
 default_run_options[:pty] = true
 
-set :application, "uncommonfund"
-set :repository,  "git://github.com/jksilliman/UncommonFund.git"
+set :application, "shuttlebooking"
+set :repository,  "git://github.com/jksilliman/ShuttleBooking.git"
 set :scm, :git
 set :deploy_via, :remote_cache
-set :deploy_to, "/var/www/uncommonfund"
+set :deploy_to, "/var/www/shuttlebooking"
 
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 server "delphi.uchicago.edu:61527", :app, :web, :db, :primary => true
