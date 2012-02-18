@@ -1,4 +1,8 @@
 ShuttleBooking::Application.configure do
+
+  # TODO - CHANGE
+  config.action_mailer.default_url_options = { :host => "sg.uchicago.edu" }
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

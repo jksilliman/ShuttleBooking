@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %title= "#{title}UChicago Airport Shuttles" 
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "http://sg.uchicago.edu/sg-header/sg-header.js" 
+    = render "layouts/scripts"
+    = csrf_meta_tags
+  %body{:id=> "#{controller_name}", :class =>"#{action_name}"}
+    .page-header
+      .user-panel
+        - if current_user
+          = "Welcome, #{current_user.username}"
+          - if current_user.is_admin
+            = link_to "Admin Panel", admin_path
+            = " | "
+          = link_to "Logout", destroy_user_session_path, :method => "delete"
+        - else
+          = link_to "Login", new_user_session_path
+
+    .container-fluid
+      .header
+        - #
+        - #  = link_to root_path do 
+        - #    = image_tag "uncommonfund.png", :class => 'logo'
+        = link_to root_path do
+          %h1 UChicago Airport Shuttles 
+          %p
+            %ul.nav
+              %li= link_to "Home", page_path("home")
+      .sidebar
+        - if content_for?(:sidebar)
+          = yield :sidebar
+        - else
+          %ul.committees.unstyled      
+      .content
+        .flashes
+          - flash.each do |type, text|
+            %div{"class" => "#{type} alert-message"}= text
+        %h1= title
+
+        .row
+          .span12.columns
+            = yield
