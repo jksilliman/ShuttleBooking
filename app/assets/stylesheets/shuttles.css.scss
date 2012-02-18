@@ -1,0 +1,13 @@
+// Place all the styles related to the matching controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.shuttles {
+  
+  list-style: none;
+  .new-day {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+  }
+}

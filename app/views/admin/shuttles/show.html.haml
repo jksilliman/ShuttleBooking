@@ -1,0 +1,9 @@
+- title "Passengers for #{@shuttle.departure_time}"
+
+- if @shuttle.num_people > 0
+  %ul
+    - @shuttle.users.each do |user|
+      %li= user.username
+
+- else
+  There are no passengers registered for this shuttle.

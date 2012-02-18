@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  departure_time: 2012-02-18 13:52:51
+  capacity: 1
+
+two:
+  departure_time: 2012-02-18 13:52:51
+  capacity: 1

@@ -1,0 +1,20 @@
+- title "Manage Shuttles"
+
+= link_to "New Shuttle", new_admin_shuttle_path, :class => "button"
+
+%table.zebra-striped
+  %thead
+    %tr
+      %th Departure Time
+      %th Capacity
+      %th Actions
+  %tbody
+    - @shuttles.each do |shuttle|
+      %tr
+        %td= link_to shuttle.departure_time, admin_shuttle_path(shuttle)
+        %td= "#{shuttle.num_people}/#{shuttle.capacity}"
+        %td
+          = link_to "View Passengers", admin_shuttle_path(shuttle)
+          &nbsp;|&nbsp; 
+          -# = link_to "Edit", edit_admin_project_path(project)
+          = link_to "Delete", admin_shuttle_path(shuttle), :method => :delete, :confirm => "Are you sure you want to delete this shuttle?" 
