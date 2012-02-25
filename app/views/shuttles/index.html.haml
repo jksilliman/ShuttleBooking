@@ -10,7 +10,7 @@
     \. You can change your choice below.
 
 .flashes
-  - if not current_user.valid?
+  -if current_user.changed?
     .error.alert-message
       - current_user.errors.full_messages.each do |err|
         %p= err
