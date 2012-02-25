@@ -3,20 +3,29 @@ class ShuttlesController < ApplicationController
   
   def index
     @shuttles = Shuttle.all
+    current_user.on_shuttle_form = true
   end
 
   def select
-    @shuttle = Shuttle.find(params[:shuttle_id])
-    unless @shuttle.is_full?
-      current_user.shuttle = @shuttle
-      current_user.save
-      flash[:success] = "Thank you for choosing a shuttle! You should receive a confirmation email shortly."
+    current_user.on_shuttle_form = true
 
-      ConfirmationMailer.confirm_shuttle(current_user, @shuttle).deliver
+    current_user.attributes = params[:user] 
+    
+    send_mail = current_user.shuttle_id_changed?
+
+    if current_user.save
+      if send_mail
+        ConfirmationMailer.confirm_shuttle(current_user, current_user.shuttle).deliver
+
+        flash[:success] = "Thank you for choosing a shuttle! You should receive a confirmation email shortly."
+      else
+        flash[:success] = "Thank you for changing your contact information."
+      end
+      redirect_to shuttles_path
     else
-      flash[:error] = "This shuttle is full. Please choose a different shuttle."
+      @shuttles = Shuttle.all
+      render :index
     end
-    redirect_to shuttles_path
   end
 
 end

@@ -5,9 +5,22 @@
   %p
     You have selected the 
     %strong= current_user.shuttle.long_date
-    shuttle. You can change your choice below.
+    shuttle to
+    %strong= current_user.shuttle.destination
+    \. You can change your choice below.
 
-= form_tag(select_shuttles_path) do
+.flashes
+  - if not current_user.valid?
+    .error.alert-message
+      - current_user.errors.full_messages.each do |err|
+        %p= err
+
+= simple_form_for(current_user, :url => select_shuttles_path, :method => :post) do |f|
+  = f.input :first_name, :required => true
+  = f.input :last_name, :required => true
+  = f.input :phone_number, :as => :string, :required => true
+  = f.input :division, :required => true
+
   %ul.shuttles
     - prev_day = nil
     - @shuttles.each do |shuttle|
@@ -17,9 +30,9 @@
         %li.new-day= shuttle.day_of_week
       %li
         - if shuttle.is_full?
-          = radio_button_tag "shuttle_id", shuttle.id, (current_user.shuttle_id == shuttle.id), :disabled => true
+          = f.radio_button :shuttle_id, shuttle.id, :disabled => true
         - else
-          = radio_button_tag "shuttle_id", shuttle.id, (current_user.shuttle_id == shuttle.id)
+          = f.radio_button :shuttle_id, shuttle.id
         = "#{shuttle.short_time} to #{shuttle.destination}"
         - if shuttle.is_full?
           (FULL)
