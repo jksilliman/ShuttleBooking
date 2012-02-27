@@ -1,6 +1,6 @@
 -title "Sign in"
 
-%p= SiteContent.get("sign_in_text")
+%p= markdown(SiteContent.get("sign_in_text"))
 
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
   = f.input :username, :label => "CNetID"

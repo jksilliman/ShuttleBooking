@@ -1,5 +1,5 @@
 - title "Choose a Shuttle"
-%p= SiteContent.get("shuttle_form_text")
+%p= markdown(SiteContent.get("shuttle_form_text"))
 
 - if current_user.shuttle_id
   %p
