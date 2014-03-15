@@ -11,7 +11,7 @@ ShuttleBooking::Application.routes.draw do
   namespace :admin do
     resources :shuttles, :only => [:index, :new, :create, :destroy, :show] do
       member do
-        delete 'delete_user'
+        delete 'delete_user/:uid', :action => "delete_user"
       end
     end
     resources :users, :only => [:index, :new, :create, :destroy]

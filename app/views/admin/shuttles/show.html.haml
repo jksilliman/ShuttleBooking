@@ -3,7 +3,9 @@
 - if @shuttle.num_people > 0
   %ul
     - @shuttle.users.each do |user|
-      %li= user.username
+      %li 
+        =user.username 
+        = link_to "Remove", admin_shuttle_path(shuttle) + "/delete_user/" + user.id, :remote => true, :method => :delete, :confirm => "Are you sure you want to remove this user from the shuttle?"
 
 - else
   There are no passengers registered for this shuttle.
