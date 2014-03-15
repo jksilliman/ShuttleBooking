@@ -22,7 +22,7 @@ class Admin::ShuttlesController < Admin::BaseController
   end
 
   def delete_user
-    @shuttle.delete(@shuttle.users.find_by_id(params[:uid]))
+    @shuttle.users.delete(@shuttle.users.find_by_id(params[:uid]))
     respond_with(@shuttle)
   end
 
