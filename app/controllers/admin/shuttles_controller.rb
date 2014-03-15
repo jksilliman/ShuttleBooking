@@ -21,6 +21,11 @@ class Admin::ShuttlesController < Admin::BaseController
     respond_with(@shuttle, :location => admin_shuttles_path)
   end
 
+  def delete_user
+    @shuttle.delete(@shuttle.users.find_by_id(params[:user_id]))
+    respond_with(@shuttle)
+  end
+
   def destroy
     # TODO - Notify users that their bus changed
     @shuttle.destroy
