@@ -33,10 +33,9 @@
           = f.radio_button :shuttle_id, shuttle.id, :disabled => true
         - else
           = f.radio_button :shuttle_id, shuttle.id
-        %label{:for => "user_shuttle_id_#{shuttle.id}"}
-          = "#{shuttle.short_time} to #{shuttle.destination}"
-          - if shuttle.is_full?
-            (FULL)
-          - if (current_user.shuttle_id == shuttle.id)
-            (SELECTED)
+        = "#{shuttle.short_time} to #{shuttle.destination}"
+        - if shuttle.is_full?
+          (FULL)
+        - if (current_user.shuttle_id == shuttle.id)
+          (SELECTED)
   = submit_tag "Select Shuttle"
