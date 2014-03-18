@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jksilliman/devise_ldap_authenticatable.git
-  revision: 7a8cff796fec1eb3a73c573c14d5044cd875fc6c
+  revision: 5b21dd2f9516dce24f4e53c17c4ebfac2d72846f
   specs:
     devise_ldap_authenticatable (0.4.9)
       devise (~> 1.4.0)
@@ -59,7 +59,9 @@ GEM
     annotate (2.4.0)
     ansi (1.4.2)
     arel (2.2.1)
-    bcrypt-ruby (3.0.1)
+    bcrypt (3.1.7)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     bluecloth (2.2.0)
     builder (3.0.0)
     cancan (1.6.7)
@@ -99,9 +101,9 @@ GEM
     mime-types (1.17.2)
     multi_json (1.1.0)
     net-ldap (0.2.2)
-    orm_adapter (0.0.6)
+    orm_adapter (0.0.7)
     polyglot (0.3.3)
-    rack (1.3.6)
+    rack (1.3.10)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-mount (0.8.3)
