@@ -42,7 +42,7 @@ test:
 
 production:
   host: ldap.uchicago.edu
-  port: 389
+  port: 636
   attribute: uid 
   base: ou=people,dc=uchicago,dc=edu
   # admin_user: cn=admin,dc=test,dc=com
