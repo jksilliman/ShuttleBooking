@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/jksilliman/devise_ldap_authenticatable.git
-  revision: 5b21dd2f9516dce24f4e53c17c4ebfac2d72846f
+  revision: 0c4def3ddfe0cd63d56c6bd9cd4ee9d14835e65d
   specs:
-    devise_ldap_authenticatable (0.4.9)
+    devise_ldap_authenticatable (0.5.0)
       devise (~> 1.4.0)
       net-ldap (~> 0.2.2)
 
@@ -168,7 +168,7 @@ DEPENDENCIES
   coffee-filter
   coffee-rails (~> 3.1.0.rc)
   devise (~> 1.4.0)!
-  devise_ldap_authenticatable!
+  devise_ldap_authenticatable (~> 0.5.0)!
   haml
   haml-rails
   high_voltage
