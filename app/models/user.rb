@@ -36,13 +36,15 @@ class User < ActiveRecord::Base
 
   validate :is_in_ldap
   def is_in_ldap
+    print "TEST5"
     unless Devise::LdapAdapter.get_ldap_param(self.username,"uid")
       errors.add(:username, "is not a valid CNetID")
     end
   end
 
   before_save :get_ldap_email
-  def get_ldap_email 
+  def get_ldap_email
+    print "TEST6" 
     self.email = unwrap(Devise::LdapAdapter.get_ldap_param(self.username,"mail"))
   end
 

@@ -4,7 +4,7 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 
 gem 'devise', '~> 1.4.0', :git => 'git://github.com/plataformatec/devise.git', :branch => 'v1.4'
-gem "devise_ldap_authenticatable", '~> 0.5.0', :git => "git://github.com/jksilliman/devise_ldap_authenticatable.git"
+gem "devise_ldap_authenticatable", '~> 0.5.1', :git => "git://github.com/jksilliman/devise_ldap_authenticatable.git"
 
 gem 'jquery-rails'
 gem 'cancan'
